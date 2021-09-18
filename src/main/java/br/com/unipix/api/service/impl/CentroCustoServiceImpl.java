@@ -34,7 +34,7 @@ public class CentroCustoServiceImpl implements CentroCustoService {
 		CentroCusto model = CentroCusto.builder()
 				.changeDate(Date.from(Instant.now()))
 				.registrationDate(Date.from(Instant.now()))
-				.codigo(request.getCodigo())
+				.code(request.getCode())
 				.name(request.getName())
 				.solution(true)
 				.status(true)
@@ -54,7 +54,7 @@ public class CentroCustoServiceImpl implements CentroCustoService {
 	
 		CentroCusto model = mapper.requestToModel(request);
 		
-		BeanUtils.copyProperties(modelDB, model, "status", "solution", "nome", "codigo");
+		BeanUtils.copyProperties(modelDB, model, "state", "solution", "name", "code");
 		model.setChangeDate(Date.from(Instant.now()));
 		
 		repository.save(model);

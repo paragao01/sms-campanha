@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class CentroCustoResponse {
+public class TemplateMensagemResponse {
 
 	@JsonProperty(value = "id")
 	private Long id;
@@ -19,17 +19,19 @@ public class CentroCustoResponse {
 	@JsonProperty(value = "codigo")
 	private Integer code;
 	
+	@JsonProperty(value = "centroCusto")
+	private CentroCustoResponse costCenter;
+	
+	@JsonProperty(value = "modelo")
+	private String template;
+	
 	@JsonProperty(value = "status")
 	private Boolean status;
 	
-	@JsonProperty(value = "solucao")
-	private Boolean solution;
-	
-	@JsonProperty(value = "dataCadastro")
 	@JsonFormat(pattern = "dd/MM/yyyy", timezone = "Brazil/East")
-	private Date registrationDate;
-	
 	@JsonProperty(value = "dataAlteracao")
-	@JsonFormat(pattern = "dd/MM/yyyy", timezone = "Brazil/East")
 	private Date changeDate;
+	
+	@JsonProperty(value = "caracteres")
+	private Integer characters;
 }

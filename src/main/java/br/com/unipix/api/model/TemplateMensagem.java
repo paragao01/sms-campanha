@@ -1,6 +1,5 @@
 package br.com.unipix.api.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,16 +19,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-@Table(name = "tb_centro_de_custo")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CentroCusto implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+@Entity
+@Table(name = "tb_template_mensagem")
+public class TemplateMensagem {
 	
 	@Id
+	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
@@ -36,15 +38,20 @@ public class CentroCusto implements Serializable {
 	@Column(name = "codigo")
 	private Integer code;
 	
+	@OneToOne
+	@JoinColumn(name = "centro_custo_id", referencedColumnName = "id")
+	private CentroCusto costCenter;
+	
+	@Column(name = "modelo")
+	private String template;
+	
 	@Column(name = "status")
 	private Boolean status;
 	
-	@Column(name = "solucao")
-	private Boolean solution;
-	
-	@Column(name = "data_cadastro")
-	private Date registrationDate;
-	
 	@Column(name = "data_alteracao")
 	private Date changeDate;
+	
+	@Column(name = "caracteres")
+	private Integer characters;
+
 }
