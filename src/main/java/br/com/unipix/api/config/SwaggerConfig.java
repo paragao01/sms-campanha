@@ -79,7 +79,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 	
 	private SecurityScheme securityScheme() {
 		return new OAuthBuilder()
-				.name("Integra")
+				.name("Unipix")
 				.grantTypes(grantTypes())
 				.scopes(scopes())
 				.build();
@@ -87,7 +87,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 	
 	private SecurityContext securityContext() {
 		SecurityReference securityReference = SecurityReference.builder()
-				.reference("Integra")
+				.reference("Unipix")
 				.scopes(scopes().toArray(new AuthorizationScope[0]))
 				.build();
 		
@@ -164,7 +164,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 				.title("unipix - SMS API")
 				.description("API para o Sistema SMS")
 				.version("1.0")
-				.contact(new Contact("Integra", "https://www.unipix.com.br", "contato@unipix.com.br"))
+				.contact(new Contact("Unipix", "https://www.unipix.com.br", "contato@unipix.com.br"))
 				.build();
 	}
 	

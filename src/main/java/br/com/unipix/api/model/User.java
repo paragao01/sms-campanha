@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +18,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_usuario")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+@Builder
+public class User {
 
 	@Id
 	@Column(name = "id")
@@ -25,13 +27,13 @@ public class Usuario {
 	private Long id;
 	
 	@Column(name = "nome")
-	private String nome;
+	private String name;
 	
 	@Column(name = "email")
 	private String email;
 	
 	@Column(name = "senha")
-	private String senha;
+	private String password;
 	
 	@Column(name = "status")
 	private boolean status;
