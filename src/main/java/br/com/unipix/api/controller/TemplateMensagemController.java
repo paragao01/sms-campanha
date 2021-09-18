@@ -1,5 +1,6 @@
 package br.com.unipix.api.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.unipix.api.controller.swagger.TemplateMensagemControllerSwagger;
 import br.com.unipix.api.dto.request.TemplateMensagemRequest;
 import br.com.unipix.api.dto.response.TemplateMensagemResponse;
+import br.com.unipix.api.enumaration.VariavelEnum;
 import br.com.unipix.api.service.TemplateMensagemService;
 
 @RestController
@@ -82,6 +84,15 @@ public class TemplateMensagemController implements TemplateMensagemControllerSwa
 		service.delete(id);
 		
 		return ResponseEntity.noContent().build();
+	}
+	
+	@Override
+	@GetMapping("/variaveis")
+	public ResponseEntity<HashMap<VariavelEnum, String>> findVariables() {
+		
+		HashMap<VariavelEnum, String> variables = service.listVariables();
+		
+		return variables.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(variables);
 	}
 	
 }

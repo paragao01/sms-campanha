@@ -2,6 +2,7 @@ package br.com.unipix.api.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.unipix.api.enums.StatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,5 @@ public class UserResponse {
 	private String email;
 	
 	@JsonProperty("status")
-	private boolean status;
+	private StatusEnum status;
 }

@@ -9,10 +9,13 @@ import br.com.unipix.api.dto.request.LayoutCadastroRequest;
 import br.com.unipix.api.dto.response.LayoutCadastroResponse;
 import br.com.unipix.api.exception.handler.Problem;
 import br.com.unipix.api.model.Anexo;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+
+@Api(tags  ="Controller de Layout de Cadastro ")
 public interface LayoutCadastroControllerSwagger {
 	
 	@ApiOperation(value = "Retorna um paginavel de Layout de cadastro", httpMethod = "GET")

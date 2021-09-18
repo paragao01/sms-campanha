@@ -37,7 +37,7 @@ public interface CentroCustoControllerSwagger {
 			@ApiResponse(code = 404, response = Problem.class, message = "O recurso não foi encontrado") })
 	ResponseEntity<CentroCustoResponse> delete(Long id);
 
-	@ApiOperation(value = "Atualizar um Centro de Custo", httpMethod = "UPDATE")
+	@ApiOperation(value = "Atualizar um Centro de Custo", httpMethod = "PUT")
 	@ApiResponses({ @ApiResponse(code = 200, response = CentroCustoResponse.class, message = "Requisição com sucesso"),
 			@ApiResponse(code = 404, response = Problem.class, message = "O recurso não foi encontrado") })
 	ResponseEntity<CentroCustoResponse> updateCenter(CentroCustoRequest request, Long id);

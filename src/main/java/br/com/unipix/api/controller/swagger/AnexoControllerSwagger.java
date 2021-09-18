@@ -13,7 +13,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(tags  = "Anexo Controler")
+
+
+@Api(tags  = "Controler de Anexo")
 public interface AnexoControllerSwagger {
 	
 	@ApiOperation(value = "Retorna um paginavel de arquivos", httpMethod = "GET")

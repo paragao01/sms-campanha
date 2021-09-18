@@ -2,6 +2,8 @@ package br.com.unipix.api.dto.response;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import br.com.unipix.api.enumaration.StatusEnum;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,22 +13,26 @@ import lombok.Setter;
 public class LayoutCadastroResponse {
 	
 	private Long id;
-
+	@JsonProperty(value = "nome")
 	private String name;
 
+	@JsonProperty(value = "codigo")
 	private Long code;
 
-	private Integer CentroCusto;
+	private CentroCustoResponse centroCusto;
 
+	@JsonProperty(value = "numeroCampos")
 	private Long numberFields;
 
-	private Long quantideTelefones;
+	@JsonProperty(value = "quantidadeTelefone")
+	private Long amountTelephone;
 
-	private Integer type;
-
-	private StatusEnum status;
-	
+	@JsonProperty("ignorarCabecalho")
 	private StatusEnum ignoreHeader;
+	
+	@JsonProperty(value = "status")
+	private StatusEnum status;
 
+	@JsonProperty("dataCriacao")
 	private Date createDate;
 }

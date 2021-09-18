@@ -1,9 +1,11 @@
 package br.com.unipix.api.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import br.com.unipix.api.dto.request.TemplateMensagemRequest;
 import br.com.unipix.api.dto.response.TemplateMensagemResponse;
+import br.com.unipix.api.enumaration.VariavelEnum;
 
 public interface TemplateMensagemService {
 	
@@ -17,7 +19,7 @@ public interface TemplateMensagemService {
 	
 	TemplateMensagemResponse findById(Long id);
 	
-	
+	HashMap<VariavelEnum, String> listVariables();
 	
 	void delete(Long id);
 

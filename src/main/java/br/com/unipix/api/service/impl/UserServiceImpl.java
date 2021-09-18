@@ -1,17 +1,16 @@
 package br.com.unipix.api.service.impl;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.thoughtworks.xstream.mapper.Mapper;
-
 import br.com.unipix.api.dto.request.UserRequest;
 import br.com.unipix.api.dto.response.UserResponse;
+import br.com.unipix.api.enums.StatusEnum;
 import br.com.unipix.api.exception.BusinessException;
 import br.com.unipix.api.mapper.UserMapper;
 import br.com.unipix.api.model.User;
@@ -36,8 +35,8 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public Page<UserResponse> findAll(Pageable pageable) {
-		Page<User> users = repository.findAll(pageable);
+	public Page<UserResponse> findAll(Specification<User> spec, Pageable pageable) {
+		Page<User> users = repository.findAll(spec, pageable);
 		return users.map(u -> userMapper.modelToDto(u));
 	}
 
@@ -57,7 +56,7 @@ public class UserServiceImpl implements UserService{
 				.email(user.getEmail())
 				.name(user.getName())
 				.password(passwordEncoder.encode(user.getConfirmPassword()))
-				.status(true)
+				.status(StatusEnum.ATIVO)
 				.build();
 				
 		User userSaved = repository.save(userModel);
@@ -76,7 +75,7 @@ public class UserServiceImpl implements UserService{
 				.id(id)
 				.email(user.getEmail())
 				.name(user.getName())
-				.status(true)
+				.status(StatusEnum.ATIVO)
 				.password(passwordEncoder.encode(user.getConfirmPassword())).build();
 		User userSaved = repository.save(userUpdate);
 		return userMapper.modelToDto(userSaved);
@@ -97,7 +96,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserResponse activate(Long id) {
 		User existingUser = searchOrFail(id);
-		existingUser.setStatus(true);
+		existingUser.setStatus(StatusEnum.ATIVO);
 		
 		return userMapper.modelToDto(repository.save(existingUser));
 	}
@@ -105,7 +104,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserResponse disable(Long id) {
 		User existingUser = searchOrFail(id);
-		existingUser.setStatus(false);
+		existingUser.setStatus(StatusEnum.INATIVO);
 		
 		return userMapper.modelToDto(repository.save(existingUser));
 	}

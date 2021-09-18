@@ -24,7 +24,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.unipix.api.controller.swagger.UserControllerSwagger;
 import br.com.unipix.api.dto.request.UserRequest;
 import br.com.unipix.api.dto.response.UserResponse;
+import br.com.unipix.api.filter.UserFilter;
 import br.com.unipix.api.model.User;
+import br.com.unipix.api.repository.specification.UserSpecification;
 import br.com.unipix.api.service.UserService;
 
 
@@ -39,8 +41,8 @@ public class UserController implements UserControllerSwagger {
 	@Override
 	//@CheckSecurity.DadosSumarizados.PodeAcessar
 	@GetMapping()
-	public ResponseEntity<Page<?>> findAll(@PageableDefault(size = 10) Pageable page) {
-		return ResponseEntity.ok(service.findAll(page));
+	public ResponseEntity<Page<?>> findAll(@PageableDefault(size = 10) Pageable page, UserSpecification spec, UserFilter filter) {
+		return ResponseEntity.ok(service.findAll(spec, page));
 	}
 
 	@Override

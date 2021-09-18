@@ -3,6 +3,7 @@ package br.com.unipix.api.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 
 import br.com.unipix.api.dto.request.UserRequest;
 import br.com.unipix.api.dto.response.UserResponse;
@@ -10,7 +11,7 @@ import br.com.unipix.api.model.User;
 
 public interface UserService{
 
-	public Page<UserResponse> findAll(Pageable pageable);
+	public Page<UserResponse> findAll(Specification<User> spec ,Pageable pageable);
 	
 	public UserResponse findById(Long id);
 	

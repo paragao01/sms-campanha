@@ -13,7 +13,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.unipix.api.dto.request.UserRequest;
 import br.com.unipix.api.dto.response.UserResponse;
 import br.com.unipix.api.exception.handler.Problem;
+import br.com.unipix.api.filter.UserFilter;
 import br.com.unipix.api.model.User;
+import br.com.unipix.api.repository.specification.UserSpecification;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -27,7 +29,7 @@ public interface UserControllerSwagger {
 		@ApiResponse(code = 200, response = UserResponse.class, message = "Requisição com sucesso"),
 		@ApiResponse(code = 404, response = Problem.class, message = "O recurso não foi encontrado")
 	})
-	ResponseEntity<Page<?>>findAll(@PageableDefault(size = 10) Pageable page);
+	ResponseEntity<Page<?>>findAll(@PageableDefault(size = 10) Pageable page, UserSpecification spec, UserFilter filter);
 	
 	@ApiOperation(value = "Busca um único usuário", httpMethod = "GET")
 	@ApiResponses({

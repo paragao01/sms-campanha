@@ -1,5 +1,8 @@
 package br.com.unipix.api.controller;
 
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,13 +41,14 @@ public class LayoutCadastroController {
 	}
 
 	@PostMapping
-	public ResponseEntity<LayoutCadastroResponse> create(@RequestBody LayoutCadastroRequest request, UriComponentsBuilder uri) {
+	public ResponseEntity<LayoutCadastroResponse> create(@Valid @RequestBody LayoutCadastroRequest request, UriComponentsBuilder uri) {
 		LayoutCadastroResponse dto = service.create(request);
 		return ResponseEntity.created(uri.path("/layout_cadastro/{id}").buildAndExpand(dto.getId()).toUri()).body(dto);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<LayoutCadastroResponse> update(@RequestBody LayoutCadastroRequest request, @PathVariable(required = true) Long  id) {
+	public ResponseEntity<LayoutCadastroResponse> update(@Valid @RequestBody LayoutCadastroRequest request, @PathVariable(required = true) Long  id) {
+
 		return ResponseEntity.ok(service.update(id, request));
 	}
 	
