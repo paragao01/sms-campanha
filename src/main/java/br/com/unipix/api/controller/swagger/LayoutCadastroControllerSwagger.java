@@ -14,7 +14,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(tags  ="Layout de Cadastro Controller")
+
+@Api(tags  ="Controller de Layout de Cadastro ")
 public interface LayoutCadastroControllerSwagger {
 	
 	@ApiOperation(value = "Retorna um paginavel de Layout de cadastro", httpMethod = "GET")

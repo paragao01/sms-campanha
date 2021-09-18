@@ -49,7 +49,7 @@ public class LayoutCadastro {
 	
 	@Column(name = "quantide_telefones")
 	private Long amountTelephone;
-	
+
 	@Column(name = "tipo")
 	private Integer type;
 	

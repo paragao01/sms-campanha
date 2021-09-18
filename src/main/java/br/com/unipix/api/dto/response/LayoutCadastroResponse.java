@@ -5,39 +5,34 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.unipix.api.enumaration.StatusEnum;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
 public class LayoutCadastroResponse {
 	
-	
 	private Long id;
-	
-	@JsonProperty("nome")
+
+	@JsonProperty(value = "nome")
 	private String name;
 
-	@JsonProperty("codigo")
+	@JsonProperty(value = "codigo")
 	private Long code;
 
 	private CentroCustoResponse centroCusto;
 
-	@JsonProperty("numeroCampos")
+	@JsonProperty(value = "numeroCampos")
 	private Long numberFields;
 
-	@JsonProperty("quantideTelefones")
+	@JsonProperty(value = "quantidadeTelefone")
 	private Long amountTelephone;
 
-	@JsonProperty("tipo")
-	private Integer type;
-
-	private StatusEnum status;
-	
 	@JsonProperty("ignorarCabecalho")
 	private StatusEnum ignoreHeader;
+	
+	@JsonProperty(value = "status")
+	private StatusEnum status;
 
 	@JsonProperty("dataCriacao")
 	private Date createDate;

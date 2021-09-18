@@ -1,9 +1,11 @@
 package br.com.unipix.api.dto.request;
 
+
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
+
 
 import br.com.unipix.api.enumaration.StatusEnum;
 import lombok.Getter;
@@ -12,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LayoutCadastroRequest {
+
 	
 	@NotNull
 	@NotBlank

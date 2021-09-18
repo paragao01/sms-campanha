@@ -16,14 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.unipix.api.controller.swagger.LayoutCadastroControllerSwagger;
 import br.com.unipix.api.dto.request.LayoutCadastroRequest;
 import br.com.unipix.api.dto.response.LayoutCadastroResponse;
 import br.com.unipix.api.service.LayoutCadastroService;
+import io.swagger.annotations.Api;
 
 @RestController
 @RequestMapping("/layout_cadastro")
-public class LayoutCadastroController implements LayoutCadastroControllerSwagger{
+@Api(tags  ="Layout de Cadastro Controller")
+public class LayoutCadastroController {
+
 	
 	@Autowired
 	private LayoutCadastroService service;
@@ -39,13 +41,16 @@ public class LayoutCadastroController implements LayoutCadastroControllerSwagger
 	}
 
 	@PostMapping
+
 	public ResponseEntity<LayoutCadastroResponse> create(@Valid @RequestBody LayoutCadastroRequest request, UriComponentsBuilder uri) {
 		LayoutCadastroResponse dto = service.create(request);
 		return ResponseEntity.created(uri.path("/layout_cadastro/{id}").buildAndExpand(dto.getId()).toUri()).body(dto);
 	}
 
 	@PutMapping("/{id}")
+
 	public ResponseEntity<LayoutCadastroResponse> update(@Valid @RequestBody LayoutCadastroRequest request, @PathVariable(required = true) Long  id) {
+
 		return ResponseEntity.ok(service.update(id, request));
 	}
 	

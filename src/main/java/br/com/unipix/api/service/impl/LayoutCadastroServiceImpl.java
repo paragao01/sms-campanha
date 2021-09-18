@@ -28,6 +28,7 @@ public class LayoutCadastroServiceImpl implements LayoutCadastroService{
 	@Autowired
 	private LayoutCadastroMapper mapper;
 	
+
 	@Autowired
 	private CentroCustoRepository centroCustoRepository;
 	
@@ -56,7 +57,6 @@ public class LayoutCadastroServiceImpl implements LayoutCadastroService{
 		if(Objects.nonNull(request.getCentroCusto()) && Objects.nonNull(request.getCentroCusto().getId())) {
 			centroCustoRepository.findById(request.getCentroCusto().getId()).orElseThrow(() -> new BusinessException(String.format("Centro de custo de código: %d não encontrado.", request.getCentroCusto().getId())) {});
 		}
-	
 		LayoutCadastro savedModel = repository.save(model);
 		return mapper.modelToResponse(savedModel) ;
 	}
@@ -70,6 +70,7 @@ public class LayoutCadastroServiceImpl implements LayoutCadastroService{
 	}
 
 	@Override
+
 	@SuppressWarnings("serial")
 	public void delete(Long id) {
 		LayoutCadastro model = repository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException(String.format("Layout de cadastro de código: %d não encontrado.", id)) {});
