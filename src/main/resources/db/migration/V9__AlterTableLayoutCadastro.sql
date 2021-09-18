@@ -1,0 +1,1 @@
+ALTER TABLE tb_layout_cadastro ADD CONSTRAINT tb_layout_cadastro_FK FOREIGN KEY (centro_de_custo_id) REFERENCES tb_centro_de_custo(id);

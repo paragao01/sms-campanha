@@ -9,6 +9,12 @@ public enum StatusEnum {
 	ATIVO(1, "Ativo");
 	
 	private Integer id;
+	private String name;
 	
-	private String nome;
+	public static StatusEnum getById(Long id) {
+	    for(StatusEnum e : values()) {
+	        if(e.id.equals(id)) return e;
+	    }
+	    throw new IllegalArgumentException(String.format("Não existe uma constante para o valor %d no ENUM %s",  id,StatusEnum.class.getName()));
+	}
 }

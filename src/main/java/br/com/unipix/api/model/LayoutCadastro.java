@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -38,14 +40,15 @@ public class LayoutCadastro {
 	@Column(name = "codigo")
 	private Long code;
 	
-	@Column(name = "centro_de_custo_id")
-	private Integer CentroCusto;
+	@OneToOne
+	@JoinColumn(name = "centro_de_custo_id", referencedColumnName = "id", nullable = false)
+	private CentroCusto centroCusto;
 	
 	@Column(name = "numero_campos")
 	private Long numberFields;
 	
 	@Column(name = "quantide_telefones")
-	private Long quantideTelefones;
+	private Long amountTelephone;
 	
 	@Column(name = "tipo")
 	private Integer type;
