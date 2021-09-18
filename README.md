@@ -1,3 +1,3 @@
-# sms-campanha
-API de Campanha SMS
-Teste
+
+Specification com annotaion
+https://github.com/tkaczmarzyk/specification-arg-resolver
