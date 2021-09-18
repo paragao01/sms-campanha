@@ -104,6 +104,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<version>2.3.12.RELEASE</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>net.kaczmarzyk</groupId>
@@ -131,6 +137,10 @@
 			<artifactId>oauth2-oidc-sdk</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

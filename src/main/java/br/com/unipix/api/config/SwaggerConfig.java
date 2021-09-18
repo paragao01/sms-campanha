@@ -58,7 +58,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
 		
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-					.apis(RequestHandlerSelectors.basePackage("br.com.integra.api"))
+					.apis(RequestHandlerSelectors.basePackage("br.com.unipix.api"))
 					.paths(PathSelectors.any())
 					.build()
 				.useDefaultResponseMessages(false)
