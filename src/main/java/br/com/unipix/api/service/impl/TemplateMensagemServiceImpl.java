@@ -2,6 +2,7 @@ package br.com.unipix.api.service.impl;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.unipix.api.dto.request.TemplateMensagemRequest;
 import br.com.unipix.api.dto.response.TemplateMensagemResponse;
+import br.com.unipix.api.enumaration.VariavelEnum;
 import br.com.unipix.api.exception.EntidadeNaoEncontradaException;
 import br.com.unipix.api.mapper.TemplateMensagemMapper;
 import br.com.unipix.api.model.CentroCusto;
@@ -97,6 +99,18 @@ public class TemplateMensagemServiceImpl implements TemplateMensagemService{
 		List<TemplateMensagem> model = repository.findByParameter(parameter.toLowerCase());
 		
 		return model.stream().map(m -> mapper.modelToResponse(m)).collect(Collectors.toList());
+	}
+	
+	@Override
+	public HashMap<VariavelEnum, String> listVariables() {
+	
+		HashMap<VariavelEnum, String> list = new HashMap<VariavelEnum, String>();
+
+		for (VariavelEnum variables : VariavelEnum.values()) {
+			list.put(variables, variables.getDescription());
+		}
+
+		return list;
 	}
 	
 }
