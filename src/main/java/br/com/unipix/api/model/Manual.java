@@ -3,6 +3,7 @@ package br.com.unipix.api.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -12,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "manual_blacklist")
+@Table(name = "tb_manual_blacklist")
 public class Manual {
 	
 	@Id
@@ -24,6 +25,7 @@ public class Manual {
 	
 	@JsonIgnore
 	@ManyToOne
+	@JoinColumn(name = "blackList_id", referencedColumnName = "id")
 	private BlackList blackList_id;
 	
 }
