@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.unipix.api.model.Anexo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,9 +21,9 @@ public class BlackListResponse {
 	@JsonProperty("centroCusto")
 	private CentroCustoResponse centroCusto;
 	
-	private Blob anexo;
+	private Anexo anexo;
 	
 	private List<ManualResponse> manual;
 	
-	private Date dataCadastro;
+	private Date dateCreated;
 }

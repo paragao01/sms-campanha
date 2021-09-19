@@ -2,6 +2,7 @@ package br.com.unipix.api.dto.request;
 
 import java.sql.Blob;
 
+import br.com.unipix.api.model.Anexo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ public class BlackListRequest {
 
 	private Long centroCusto;
 	
-	private Blob anexo;
+	private AnexoIdRequest anexo;
 	
 	private String manual;
 	
