@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BlackListFilter {
 	
-	@ApiModelProperty(name = "name", value = "nome", dataType = "Long", example = "teste")
+	@ApiModelProperty(name = "centroCusto", value = "centroCusto", dataType = "Long")
 	private Long centroCusto;
 }

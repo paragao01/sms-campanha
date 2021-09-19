@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,13 +35,12 @@ public class BlackList {
 	private Long id;
 	
 	@OneToOne
-	@Column(name = "centro_custo_id")
 	private CentroCusto centroCusto;
 	
 	@Column(name = "anexo")
 	private Blob anexo;
 	
-	@OneToMany(mappedBy = "blackList_id")
+	@OneToMany(mappedBy = "blackList_id", fetch = FetchType.LAZY)
 	private List<Manual> manual;
 	
 	@Column(name = "dataCadastro")

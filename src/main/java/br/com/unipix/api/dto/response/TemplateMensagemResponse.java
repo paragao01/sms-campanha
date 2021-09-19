@@ -34,4 +34,7 @@ public class TemplateMensagemResponse {
 	
 	@JsonProperty(value = "caracteres")
 	private Integer characters;
+	
+	@JsonProperty(value = "usuario")
+	private UserResponse user;
 }
