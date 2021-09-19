@@ -1,8 +1,5 @@
 package br.com.unipix.api.dto.request;
 
-import java.sql.Blob;
-
-import br.com.unipix.api.model.Anexo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

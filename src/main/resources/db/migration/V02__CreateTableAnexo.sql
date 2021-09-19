@@ -4,4 +4,4 @@ create table tb_anexo (
 	tamanho_arquivo int,
 	url varchar(200),
 	PRIMARY KEY (id)
-);
+)engine=INNODB;

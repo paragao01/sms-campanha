@@ -12,10 +12,10 @@ public class UnipixSecurity {
 		return SecurityContextHolder.getContext().getAuthentication();
 	}
 	
-	public Long getClienteId() {
+	public Long getUsuarioId() {
 		Jwt jwt = (Jwt) getAuthentication().getPrincipal();
 		
-		return jwt.getClaim("cliente_id");
+		return jwt.getClaim("usuario_id");
 	}	
 	
 }

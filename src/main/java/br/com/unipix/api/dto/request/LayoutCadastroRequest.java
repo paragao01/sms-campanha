@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import br.com.unipix.api.enumaration.StatusEnum;
-import br.com.unipix.api.model.Anexo;
 import lombok.Getter;
 import lombok.Setter;
 

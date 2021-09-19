@@ -1,5 +1,7 @@
 package br.com.unipix.api.model;
 
+
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,45 +11,40 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import br.com.unipix.api.enums.StatusEnum;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "tb_grupo")
 @Entity
-@Table(name = "tb_usuario")
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class User {
+public class Grupo {
 
+	@EqualsAndHashCode.Include
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "nome")
-	private String name;
-	
-	@Column(name = "email")
-	private String email;
-	
-	@Column(name = "senha")
-	private String password;
+	@Column(nullable = false)
+	private String nome;
 	
 	@Column(name = "status")
 	private StatusEnum status;
 	
+	@CreatedDate
+	@Column(name = "data_criacao")
+	private Date createDate;
+	
 	@ManyToMany
-	@JoinTable(name = "tb_usuario_grupo", joinColumns = @JoinColumn(name = "usuario_id"),
-			inverseJoinColumns = @JoinColumn(name = "grupo_id"))
-	private Set<Grupo> grupos = new HashSet<>();
+	@JoinTable(name = "tb_grupo_permissao", joinColumns = @JoinColumn(name = "grupo_id"),
+			inverseJoinColumns = @JoinColumn(name = "permissao_id"))
+	private Set<Permissao> permissoes = new HashSet<>();
 	
 }

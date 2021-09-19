@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.unipix.api.config.security.CheckSecurity;
+import br.com.unipix.api.config.security.UnipixSecurity;
 import br.com.unipix.api.controller.swagger.TemplateMensagemControllerSwagger;
 import br.com.unipix.api.dto.request.TemplateMensagemRequest;
 import br.com.unipix.api.dto.response.TemplateMensagemResponse;
@@ -29,6 +31,9 @@ public class TemplateMensagemController implements TemplateMensagemControllerSwa
 
 	@Autowired
 	private TemplateMensagemService service;
+	
+	@Autowired
+	private UnipixSecurity security;
 	
 	@Override
 	@GetMapping
@@ -58,9 +63,12 @@ public class TemplateMensagemController implements TemplateMensagemControllerSwa
 	}
 	
 	@Override
+	@CheckSecurity.TemplateMensagem.PodeAcessar
 	@PostMapping
 	public ResponseEntity<TemplateMensagemResponse> create(@RequestBody @Valid TemplateMensagemRequest request,
 			UriComponentsBuilder uri) {
+		
+		request.setUser(security.getUsuarioId());
 		
 		TemplateMensagemResponse template = service.create(request);
 		

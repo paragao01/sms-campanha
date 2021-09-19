@@ -1,6 +1,5 @@
 package br.com.unipix.api.dto.response;
 
-import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
 

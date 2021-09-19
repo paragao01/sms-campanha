@@ -2,19 +2,16 @@ package br.com.unipix.api.controller.swagger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.unipix.api.dto.request.UserRequest;
 import br.com.unipix.api.dto.response.UserResponse;
 import br.com.unipix.api.exception.handler.Problem;
 import br.com.unipix.api.filter.UserFilter;
-import br.com.unipix.api.model.User;
 import br.com.unipix.api.repository.specification.UserSpecification;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

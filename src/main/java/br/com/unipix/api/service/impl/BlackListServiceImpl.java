@@ -1,7 +1,5 @@
 package br.com.unipix.api.service.impl;
 
-
-
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Date;

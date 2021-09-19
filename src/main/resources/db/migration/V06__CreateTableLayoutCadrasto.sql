@@ -10,4 +10,4 @@ create table tb_layout_cadastro (
 	ignorar_cabecalho int,
 	data_criacao DATE,
 	PRIMARY KEY (id)
-);
+)engine=INNODB;

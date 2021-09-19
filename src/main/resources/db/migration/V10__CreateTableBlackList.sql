@@ -3,4 +3,4 @@ create table tb_blacklist (
 	anexo blob,
 	centro_custo_id varchar(80),
 	dataCadastro TimeStamp
-);
+)engine=INNODB;

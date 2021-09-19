@@ -17,8 +17,6 @@ import br.com.unipix.api.controller.swagger.BlackListControllerSwagger;
 import br.com.unipix.api.dto.request.BlackListRequest;
 import br.com.unipix.api.dto.response.BlackListResponse;
 import br.com.unipix.api.filter.BlackListFilter;
-import br.com.unipix.api.model.Anexo;
-import br.com.unipix.api.model.BlackList;
 import br.com.unipix.api.service.BlackListService;
 
 @RestController

@@ -9,7 +9,6 @@ public enum StatusEnum {
 	ATIVO(1, "Ativo");
 	
 	private Integer id;
-
 	private String name;
 	
 	public static StatusEnum getById(Long id) {

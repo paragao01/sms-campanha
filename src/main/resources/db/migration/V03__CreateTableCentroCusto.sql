@@ -6,4 +6,4 @@ CREATE TABLE tb_centro_de_custo (
     solucao BOOL NULL,
     data_cadastro TIMESTAMP NULL,
     data_alteracao TIMESTAMP NULL
-)
+)engine=INNODB;

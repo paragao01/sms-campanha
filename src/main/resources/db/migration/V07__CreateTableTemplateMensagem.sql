@@ -7,4 +7,4 @@ create table tb_template_mensagem (
     status BOOL null,
     data_alteracao TIMESTAMP null,
     caracteres INTEGER null
-)
+)engine=INNODB;

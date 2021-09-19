@@ -10,7 +10,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 public @interface CheckSecurity {
 
-	public @interface DadosSumarizados {
+	public @interface TemplateMensagem {
 
 		@PreAuthorize("isAuthenticated()")
 		@Retention(RUNTIME)

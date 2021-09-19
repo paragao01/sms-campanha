@@ -4,6 +4,6 @@ create table tb_usuario (
 	email varchar(80),
 	senha varchar(20),
 	status boolean
-);
+)engine=INNODB;
 
 	
