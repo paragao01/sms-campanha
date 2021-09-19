@@ -1,0 +1,1 @@
+ALTER TABLE tb_template_mensagem ADD usuario_id INT NULL;

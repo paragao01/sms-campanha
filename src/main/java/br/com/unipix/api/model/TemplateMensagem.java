@@ -53,5 +53,9 @@ public class TemplateMensagem {
 	
 	@Column(name = "caracteres")
 	private Integer characters;
+	
+	@OneToOne
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
+	private User user;
 
 }

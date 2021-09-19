@@ -21,4 +21,7 @@ public class TemplateMensagemRequest {
 	
 	@JsonProperty(value = "status")
 	private Boolean status;
+	
+	@JsonProperty(value = "usuario")
+	private Long user;
 }

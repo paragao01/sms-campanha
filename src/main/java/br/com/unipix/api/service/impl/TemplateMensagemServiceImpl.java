@@ -18,6 +18,7 @@ import br.com.unipix.api.exception.EntidadeNaoEncontradaException;
 import br.com.unipix.api.mapper.TemplateMensagemMapper;
 import br.com.unipix.api.model.CentroCusto;
 import br.com.unipix.api.model.TemplateMensagem;
+import br.com.unipix.api.model.User;
 import br.com.unipix.api.repository.TemplateMensagemRepository;
 import br.com.unipix.api.service.TemplateMensagemService;
 
@@ -42,6 +43,7 @@ public class TemplateMensagemServiceImpl implements TemplateMensagemService{
 				.status(true)
 				.template(request.getTemplate())
 				.characters(request.getTemplate().length())
+				.user(User.builder().id(request.getUser()).build())
 				.build();
 		
 		TemplateMensagem savedModel = repository.save(model);
@@ -61,6 +63,7 @@ public class TemplateMensagemServiceImpl implements TemplateMensagemService{
 		modelDB.setChangeDate(Date.from(Instant.now()));
 		modelDB.setCharacters(request.getTemplate().length());
 		modelDB.setCostCenter(CentroCusto.builder().id(request.getCostCenter()).build());
+		modelDB.setUser(User.builder().id(request.getUser()).build());
 		
 		repository.save(modelDB);
 		
