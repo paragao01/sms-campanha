@@ -5,6 +5,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import br.com.unipix.api.enumaration.StatusEnum;
+import br.com.unipix.api.model.Anexo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,4 +36,6 @@ public class LayoutCadastroResponse {
 
 	@JsonProperty("dataCriacao")
 	private Date createDate;
+	
+	private Anexo anexo;
 }

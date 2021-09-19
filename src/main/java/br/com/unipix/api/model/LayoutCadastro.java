@@ -61,6 +61,10 @@ public class LayoutCadastro {
 	@Column(name = "ignorar_cabecalho")
 	private StatusEnum ignoreHeader;
 	
+	@OneToOne
+	@JoinColumn(name = "anexo_id", referencedColumnName = "id", nullable = false)
+	private Anexo anexo;
+	
 	@CreatedDate
 	@Column(name = "data_criacao")
 	private Date createDate;

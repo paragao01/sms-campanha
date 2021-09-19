@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -64,7 +65,11 @@ public class LayoutCadastroServiceImpl implements LayoutCadastroService{
 	@SuppressWarnings("serial")
 	public LayoutCadastroResponse update(Long id, LayoutCadastroRequest request) {
 		LayoutCadastro model = repository.findById(id).orElseThrow(() -> new EntidadeNaoEncontradaException(String.format("Layout de cadastro de código: %d não encontrado.", id)) {});
-		LayoutCadastro savedModel = repository.save(mapper.requestToModel(request));
+		if(Objects.nonNull(request.getCentroCusto()) && Objects.nonNull(request.getCentroCusto().getId())) {
+			centroCustoRepository.findById(request.getCentroCusto().getId()).orElseThrow(() -> new BusinessException(String.format("Centro de custo de código: %d não encontrado.", request.getCentroCusto().getId())) {});
+		}
+		BeanUtils.copyProperties(mapper.requestToModel(request), model, "id");
+		LayoutCadastro savedModel = repository.save(model);
 		return mapper.modelToResponse(savedModel);
 	}
 
