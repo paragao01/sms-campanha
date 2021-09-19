@@ -41,6 +41,6 @@ public class LayoutCadastroRequest {
 	@JsonProperty(value = "ignoraCabecalho")
 	private StatusEnum ignoreHeader;
 	
-	private Anexo anexo;
+	private AnexoIdRequest anexo;
 	
 }
