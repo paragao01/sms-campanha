@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum VariavelEnum {
 	
-	NOME(0L, "Nome"),
-	TELEFONE(1L, "Telefone"),
-	CAMPANHA(2L, "Campanha");
+	NOME(0L, "{Nome}"),
+	TELEFONE(1L, "{Telefone}"),
+	CAMPANHA(2L, "{Campanha}");
 
 	Long id;
 	

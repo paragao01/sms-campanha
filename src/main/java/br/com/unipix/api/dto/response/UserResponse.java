@@ -2,7 +2,7 @@ package br.com.unipix.api.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import br.com.unipix.api.enums.StatusEnum;
+import br.com.unipix.api.enumaration.StatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import br.com.unipix.api.enums.StatusEnum;
+import br.com.unipix.api.enumaration.StatusEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

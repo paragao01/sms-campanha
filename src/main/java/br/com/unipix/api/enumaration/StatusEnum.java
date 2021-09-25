@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 public enum StatusEnum {
 	
 	INATIVO(0, "Inativo"),
-	ATIVO(1, "Ativo");
+	ATIVO(1, "Ativo"),
+	REPETIDO(2, "Repetido"),
+	INVALIDO(3, "Inválido");
 	
 	private Integer id;
 	private String name;

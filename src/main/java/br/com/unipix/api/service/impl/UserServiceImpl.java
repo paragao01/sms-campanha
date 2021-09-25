@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.unipix.api.dto.request.UserRequest;
 import br.com.unipix.api.dto.response.UserResponse;
-import br.com.unipix.api.enums.StatusEnum;
+import br.com.unipix.api.enumaration.StatusEnum;
 import br.com.unipix.api.exception.BusinessException;
 import br.com.unipix.api.mapper.UserMapper;
 import br.com.unipix.api.model.User;
