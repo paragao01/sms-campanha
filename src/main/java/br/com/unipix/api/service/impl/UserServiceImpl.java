@@ -28,6 +28,9 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private CampaingNumberValidationServiceImpl teste;
 
 	public User searchOrFail(Long id) {
 		return repository.findById(id).orElseThrow(() ->
@@ -97,6 +100,7 @@ public class UserServiceImpl implements UserService{
 	public UserResponse activate(Long id) {
 		User existingUser = searchOrFail(id);
 		existingUser.setStatus(StatusEnum.ATIVO);
+		
 		
 		return userMapper.modelToDto(repository.save(existingUser));
 	}
