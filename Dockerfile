@@ -8,6 +8,6 @@ EXPOSE 8086
 
 ARG JAR_FILE=target/*.jar
 
-ADD ${JAR_FILE} api-integra-api.jar
+ADD ${JAR_FILE} api-sms-campanha.jar
 
-ENTRYPOINT ["java","-Xmx4G","-jar","/api-integra-api.jar"]
+ENTRYPOINT ["java","-Xmx4G","-jar","/api-sms-campanha.jar"]
