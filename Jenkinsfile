@@ -17,14 +17,14 @@ pipeline {
         }*/       
         stage ('Imagem docker') {
             steps {
-                sh 'docker build . -t vonex/api_integra-api:${BUILD_NUMBER}'
+                sh 'docker build . -t vonex/api_sms-campanha:${BUILD_NUMBER}'
             }
         }
         stage ('Run docker') {
             steps {
-                sh ' docker stop integra-api' 
-                sh ' docker rm integra-api'
-                sh ' docker container run --network intranet -h integra-api -d --name integra-api -p 8086:8086 vonex/api_integra-api:${BUILD_NUMBER}'
+                //sh ' docker stop api-sms-campanha' 
+                //sh ' docker rm api-sms-campanha'
+                sh ' docker container run --network intranet -h api-sms-campanha -d --name integra-api -p 8081:8081 vonex/api_sms-campanha:${BUILD_NUMBER}'
             }
         }        
     }
